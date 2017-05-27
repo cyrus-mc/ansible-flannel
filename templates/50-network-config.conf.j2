@@ -1,0 +1,5 @@
+[Service]
+ExecStartPre=-/usr/bin/etcdctl mk /coreos.com/network/config \
+  '{ "Network": "{{ vars.kubernetes.pod_network }}", "Backend": { "Type": "vxlan" } }'
+Restart=always
+RestartSec=10
