@@ -1,6 +1,6 @@
 {% set static_nodes = [] %}
 {% for server in ansible_local.k8s_facts.etcd_servers %}
-{% set endpoints = "http://%s:2380" % (server) %}
+{% set endpoints = "http://%s:2379" % (server) %}
 {% set _ = static_nodes.append(endpoints) %}
 {% endfor %}
 # defaults to the interface for the default route on the machine
