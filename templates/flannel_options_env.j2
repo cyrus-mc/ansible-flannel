@@ -1,3 +1,9 @@
+{% set static_nodes = [] %}
+{% for server in ansible_local.k8s_facts.etcd_servers %}
+{% set endpoints = "http://%s:2380" % (server) %}
+{% set _ = static_nodes.append(endpoints) %}
+{% endfor %}
 # defaults to the interface for the default route on the machine
 FLANNELD_IFACE={{ ansible_eth0.ipv4.address }}
+FLANNELD_ETCD_ENDPOINTS={{ static_node | join(',') }}
 FLANNELD_ETCD_ENDPOINTS=http://{{ ansible_local.k8s_facts.etcd_elb }}:2379
