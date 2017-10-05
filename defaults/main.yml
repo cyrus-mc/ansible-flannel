@@ -1,0 +1,3 @@
+# list of entcd servers that form the cluster
+etcd_endpoints: []
+
