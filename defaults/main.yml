@@ -1,3 +1,9 @@
+---
+
 # list of entcd servers that form the cluster
 etcd_endpoints: []
+
+flannel_pod_network: 10.2.0.0/16
+
+
 
